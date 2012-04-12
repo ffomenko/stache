@@ -12,7 +12,7 @@ module Stache
         template_path = locate_template_for(base_path, file)
         if template_path
           template = ::File.open(template_path, "rb" , :encoding => Rails.configuration.encoding)
-          content_tag(:script, template.read.html_safe, :type => "text/html", :id => "#{file.dasherize.underscore}_template")
+          content_tag(:script, template.read.html_safe, :type => "text/html", :id => "#{file.dasherize.underscore}")
         else
           raise ActionView::MissingTemplate.new(potential_paths(base_path, file), file, [base_path], false, { :handlers => [:mustache] })
         end
